@@ -49,7 +49,7 @@ public class Movies {
 
 	public void addMovie(String name, String description, String director, int duration, float price, LocalDate releaseDate, ArrayList<MovieCategories> categories) {
 		//TODO: change 1 to propper id
-		this.ListOfMovies.add(new Movie(1,name,description,director,duration,price,releaseDate,categories));
+		this.ListOfMovies.add(new Movie(this.ListOfMovies.size()+1,name,description,director,duration,price,releaseDate,categories));
 	}
 
 

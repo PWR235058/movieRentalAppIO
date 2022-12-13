@@ -12,55 +12,71 @@ public class Order {
 	private Boolean isReturned;
 	private int id;
 
-
-
-
-
-	public void getListOfMovies() {
-		// TODO - implement Order.getListOfMovies
-		throw new UnsupportedOperationException();
+	public ArrayList<Movie> getListOfMovies() {
+		return this.listOfMovies;
 	}
 
-	public void getClientId() {
-		// TODO - implement Order.getClientId
-		throw new UnsupportedOperationException();
+	public int getClientId() {
+		return this.clientId;
 	}
 
-	public void getPrice() {
-		// TODO - implement Order.getPrice
-		throw new UnsupportedOperationException();
+	public float getPrice() {
+		return this.price;
 	}
 
-	public void getReturnDate() {
-		// TODO - implement Order.getReturnDate
-		throw new UnsupportedOperationException();
+	public LocalDate getReturnDate() {
+		return  this.returnDate;
 	}
 
-	public void getIsReturned() {
-		// TODO - implement Order.getIsReturned
-		throw new UnsupportedOperationException();
+	public Boolean getIsReturned() {
+		return this.isReturned;
 	}
 
-	public void getOrderId() {
-		// TODO - implement Order.getOrderId
-		throw new UnsupportedOperationException();
+	public int getOrderId() {
+		return this.id;
 	}
 
 	/**
 	 * 
 	 * @param listOfMovies
 	 * @param clientId
-	 * @param price
 	 * @param returnDate
-	 * @param isReturned
+	 * @param id
 	 */
-	public Order(ArrayList<Movie> listOfMovies, int clientId, float price, LocalDate returnDate, Boolean isReturned) {
+	public Order(ArrayList<Movie> listOfMovies, int clientId, LocalDate returnDate, int id) {
+		this.listOfMovies = listOfMovies;
+		this.clientId = clientId;
+		this.price = 0;
+		this.listOfMovies.forEach(movie -> this.price += movie.getPrice());
+		this.returnDate = returnDate;
+		this.isReturned = false;
+		this.id = id;
 
 	}
 
 	public void returnOrder() {
-		// TODO - implement Order.returnOrder
-		throw new UnsupportedOperationException();
+		this.isReturned = true;
+	}
+
+	/**
+	 * 
+	 * @param movieId
+	 */
+	public void addMovieToOrder(int movieId) {
+		Movie movieToAdd = Movies.getInstance().getMovieById(movieId);
+		this.listOfMovies.add(movieToAdd);
+		this.price += movieToAdd.getPrice();
+
+	}
+
+	/**
+	 * 
+	 * @param movieId
+	 */
+	public void removeMovieFromOrder(int movieId) {
+		Movie movieToRemove = Movies.getInstance().getMovieById(movieId);
+		this.listOfMovies.remove(movieToRemove);
+		this.price -= movieToRemove.getPrice();
 	}
 
 }

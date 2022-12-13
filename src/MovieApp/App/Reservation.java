@@ -8,7 +8,9 @@ public class Reservation {
 	private String firstName = null;
 	private String lastName = null;
 	private int id;
-	private Client registeredClient = null;
+	private int clientId ;
+
+
 
 
 	public String getFirstName() {
@@ -19,7 +21,7 @@ public class Reservation {
 		return this.lastName;
 	}
 
-	public Client getClient() { return this.registeredClient; }
+	public int getClientId() { return this.clientId; }
 
 	public int getId() { return this.id; }
 
@@ -32,7 +34,7 @@ public class Reservation {
 	 * @param lastName
 	 */
 
-	public void Reservation(ArrayList<Movie> movies, String firstName, String lastName) {
+	public  Reservation(ArrayList<Movie> movies, String firstName, String lastName, int id) {
 		this.movies = movies;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -43,9 +45,10 @@ public class Reservation {
 	 * @param movies
 	 * @param clientId
 	 */
-	public void Reservation(ArrayList<Movie> movies, int clientId) {
+	public  Reservation(ArrayList<Movie> movies, int clientId, int id) {
 		this.movies = movies;
-		this.registeredClient = Clients.getInstance().getClientById(clientId);
+		this.clientId = clientId;
+		this.id = id;
 	}
 
 	/**
@@ -60,9 +63,9 @@ public class Reservation {
 	 * 
 	 * @param movieId
 	 */
-//	public void removeMovieFromReservation(int movieId) {
-//		this.movies.
-//	}
+	public void removeMovieFromReservation(int movieId) {
+		this.movies.remove(Movies.getInstance().getMovieById(movieId));
+	}
 
 
 
