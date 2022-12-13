@@ -1,4 +1,4 @@
-package App;
+package MovieApp.App;
 
 public class Client {
 

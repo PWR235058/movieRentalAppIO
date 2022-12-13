@@ -1,5 +1,5 @@
-package App;
-import Enums.MovieCategories;
+package MovieApp.App;
+import MovieApp.Enums.MovieCategories;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

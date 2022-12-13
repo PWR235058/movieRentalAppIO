@@ -1,4 +1,4 @@
-package App;
+package MovieApp.App;
 
 import java.util.ArrayList;
 
@@ -60,9 +60,9 @@ public class Reservation {
 	 * 
 	 * @param movieId
 	 */
-	public void removeMovieFromReservation(int movieId) {
-		this.movies.
-	}
+//	public void removeMovieFromReservation(int movieId) {
+//		this.movies.
+//	}
 
 
 

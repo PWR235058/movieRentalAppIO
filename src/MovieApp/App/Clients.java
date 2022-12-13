@@ -1,4 +1,4 @@
-package App;
+package MovieApp.App;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
