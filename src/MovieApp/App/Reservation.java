@@ -4,24 +4,25 @@ import java.util.ArrayList;
 
 public class Reservation {
 
+	private Client client = null;
 	private ArrayList<Movie> movies;
 	private String firstName = null;
 	private String lastName = null;
 	private int id;
-	private int clientId ;
-
-
-
 
 	public String getFirstName() {
+		if(client != null) return client.getFirstName();
 		return this.firstName;
 	}
 
 	public String getLastName() {
+		if(client != null) return client.getLastName();
 		return this.lastName;
 	}
 
-	public int getClientId() { return this.clientId; }
+	public int getClient() {
+		return this.client;
+	}
 
 	public int getId() { return this.id; }
 
@@ -34,20 +35,21 @@ public class Reservation {
 	 * @param lastName
 	 */
 
-	public  Reservation(ArrayList<Movie> movies, String firstName, String lastName, int id) {
-		this.movies = movies;
+	public Reservation(String firstName, String lastName, ArrayList<Movie> movies, int id) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.movies = movies;
+		this.id = id;
 	}
 
 	/**
 	 * 
+	 * @param client
 	 * @param movies
-	 * @param clientId
 	 */
-	public  Reservation(ArrayList<Movie> movies, int clientId, int id) {
+	public Reservation(Client client, ArrayList<Movie> movies, int id) {
+		this.client = client;
 		this.movies = movies;
-		this.clientId = clientId;
 		this.id = id;
 	}
 
@@ -66,8 +68,5 @@ public class Reservation {
 	public void removeMovieFromReservation(int movieId) {
 		this.movies.remove(Movies.getInstance().getMovieById(movieId));
 	}
-
-
-
 
 }

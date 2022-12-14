@@ -41,11 +41,11 @@ public class Reservations {
 
 	/**
 	 * 
-	 * @param clientId
+	 * @param client
 	 * @param movies
 	 */
-	public void addReservation(int clientId, ArrayList<Movie> movies) {
-		this.listOfReservations.add(new Reservation(movies,clientId, this.listOfReservations.size()+1));
+	public void addReservation(Client client, ArrayList<Movie> movies) {
+		this.listOfReservations.add(new Reservation(client, movies, this.listOfReservations.size()+1));
 	}
 
 	/**
@@ -54,8 +54,8 @@ public class Reservations {
 	 * @param lastName
 	 * @param movies
 	 */
-	public void addReservationNewClient(String firstName, String lastName, ArrayList<Movie> movies) {
-		this.listOfReservations.add(new Reservation(movies,firstName,lastName, this.listOfReservations.size()+1));
+	public void addReservation(String firstName, String lastName, ArrayList<Movie> movies) {
+		this.listOfReservations.add(new Reservation(firstName, lastName, movies, this.listOfReservations.size()+1));
 	}
 
 
