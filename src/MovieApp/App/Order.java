@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Order {
 
+	private Client client;
 	private ArrayList<Movie> listOfMovies;
-	private int clientId;
-	private float price;
+	private float price = 0;
 	private LocalDate returnDate;
 	private Boolean isReturned;
 	private int id;
@@ -16,8 +16,12 @@ public class Order {
 		return this.listOfMovies;
 	}
 
+	public Client getClient() {
+		return this.client;
+	}
+
 	public int getClientId() {
-		return this.clientId;
+		return this.client.getId();
 	}
 
 	public float getPrice() {
@@ -38,15 +42,24 @@ public class Order {
 
 	/**
 	 * 
+	 * @param client
 	 * @param listOfMovies
-	 * @param clientId
 	 * @param returnDate
 	 * @param id
 	 */
-	public Order(ArrayList<Movie> listOfMovies, int clientId, LocalDate returnDate, int id) {
+	public Order(Client client, ArrayList<Movie> listOfMovies, LocalDate returnDate, int id) {
+		this.client = client;
 		this.listOfMovies = listOfMovies;
-		this.clientId = clientId;
-		this.price = 0;
+		this.listOfMovies.forEach(movie -> this.price += movie.getPrice());
+		this.returnDate = returnDate;
+		this.isReturned = false;
+		this.id = id;
+
+	}
+
+	public Order(Client client, Reservation reservation, LocalDate returnDate, int id) {
+		this.client = client;
+		this.listOfMovies = reservation.getMovies();
 		this.listOfMovies.forEach(movie -> this.price += movie.getPrice());
 		this.returnDate = returnDate;
 		this.isReturned = false;

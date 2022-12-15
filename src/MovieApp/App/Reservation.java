@@ -20,8 +20,12 @@ public class Reservation {
 		return this.lastName;
 	}
 
-	public int getClient() {
+	public Client getClient() {
 		return this.client;
+	}
+
+	public int getClientId() {
+		return this.client.getId();
 	}
 
 	public int getId() { return this.id; }

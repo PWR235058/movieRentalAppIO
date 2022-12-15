@@ -41,13 +41,13 @@ public class Orders {
 
 	/**
 	 * 
+	 * @param client
 	 * @param listOfMovies
-	 * @param clientId
 	 * @param returnDate
 	 * @param id
 	 */
-	public void addOrder(ArrayList<Movie> listOfMovies,int clientId,LocalDate returnDate ,int id) {
-		this.listOfOrders.add(new Order(listOfMovies,clientId,returnDate,this.listOfOrders.size()+1));
+	public void addOrder(Client client, ArrayList<Movie> listOfMovies, LocalDate returnDate, int id) {
+		this.listOfOrders.add(new Order(client, listOfMovies, returnDate, this.listOfOrders.size()+1));
 	}
 
 	public static Orders getInstance() {
