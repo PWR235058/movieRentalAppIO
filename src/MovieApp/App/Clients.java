@@ -58,7 +58,7 @@ public class Clients {
 	 */
 	public void addClient(String userName, String password, String firstName, String lastName) {
 		LinkedList<Client> localLinkedList = (LinkedList<Client>) this.listOfClients.stream().toList();
-		this.listOfClients.add(new Client(localLinkedList.getLast().getId()+1,userName, password, firstName,lastName));
+		this.listOfClients.add(new Client(localLinkedList.getLast().getId()+1, userName, password, firstName, lastName));
 	}
 
 }

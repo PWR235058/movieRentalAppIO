@@ -29,7 +29,7 @@ public class Order {
 	}
 
 	public LocalDate getReturnDate() {
-		return  this.returnDate;
+		return this.returnDate;
 	}
 
 	public Boolean getIsReturned() {
