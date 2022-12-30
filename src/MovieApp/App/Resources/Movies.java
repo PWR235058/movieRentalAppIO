@@ -1,5 +1,6 @@
-package MovieApp.App;
-import MovieApp.Enums.MovieCategories;
+package App.Resources;
+import App.Enums.MovieCategories;
+import App.Enums.MovieCategories;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -51,6 +52,7 @@ public class Movies {
 		//TODO: change 1 to propper id
 		this.ListOfMovies.add(new Movie(this.ListOfMovies.size()+1, name, description, director, duration, price, releaseDate, categories));
 	}
+
 
 
 

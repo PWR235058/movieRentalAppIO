@@ -1,4 +1,4 @@
-package MovieApp.App;
+package App.Resources;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package MovieApp.App;
+package App.Resources;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -57,8 +57,7 @@ public class Clients {
 	 * @param lastName
 	 */
 	public void addClient(String userName, String password, String firstName, String lastName) {
-		LinkedList<Client> localLinkedList = (LinkedList<Client>) this.listOfClients.stream().toList();
-		this.listOfClients.add(new Client(localLinkedList.getLast().getId()+1, userName, password, firstName, lastName));
+		this.listOfClients.add(new Client(1 , userName, password, firstName, lastName));
 	}
 
 }

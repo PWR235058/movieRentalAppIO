@@ -1,4 +1,4 @@
-package MovieApp.Enums;
+package App.Enums;
 
 public enum MovieCategories {
 	HORROR,

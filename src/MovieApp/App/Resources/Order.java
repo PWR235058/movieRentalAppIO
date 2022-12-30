@@ -1,4 +1,4 @@
-package MovieApp.App;
+package App.Resources;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
