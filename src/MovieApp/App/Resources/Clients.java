@@ -57,7 +57,11 @@ public class Clients {
 	 * @param lastName
 	 */
 	public void addClient(String userName, String password, String firstName, String lastName) {
-		this.listOfClients.add(new Client(1 , userName, password, firstName, lastName));
+		ArrayList<Client> result = this.searchClients(userName, firstName, lastName);
+		Client client = result.size()>0 ? result.get(0) : null ;
+		if(client == null){
+			this.listOfClients.add(new Client(1 , userName, password, firstName, lastName));
+		}
 	}
 
 }
