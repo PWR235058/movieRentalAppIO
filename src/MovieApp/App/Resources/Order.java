@@ -79,7 +79,6 @@ public class Order {
 		Movie movieToAdd = Movies.getInstance().getMovieById(movieId);
 		this.listOfMovies.add(movieToAdd);
 		this.price += movieToAdd.getPrice();
-
 	}
 
 	/**
