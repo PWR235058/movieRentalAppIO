@@ -60,7 +60,8 @@ public class WorkerApp {
 	}
 
 	public void takeReturnOfOrder() {
-		Orders.getInstance().getOrderById(1).returnOrder();
+		ArrayList<Orders> clientOrders = Orders.getInstance().searchOrders(1, 10.0, false, LocalDate.now());
+		if(clientOrders != null) clientOrders.get(0).returnOrder(); // TODO
 	}
 
 	public void createOrderFromReservation() {

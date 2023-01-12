@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class ClientApp {
 
 	private ArrayList<Movie> basket;
+	private Client client = null;
 
 	public void findMovies() {
 		Scanner input = new Scanner(System.in);
@@ -17,11 +18,14 @@ public class ClientApp {
 		name = input.nextLine();
 		System.out.println("Director: \n");
 		director = input.nextLine();
-
+		// etc
+		basket = movies.searchMovies(name, director, 0, 9999, LocalDate.of(1999, 01, 01), LocalDate.now());
+		createReservation();
 	}
 
 	public void createReservation() {
-		Reservations.getInstance().addReservation(Clients.getInstance().getClientById(1),this.basket );
+		if(client != null) Reservations.getInstance().addReservation(this.client, this.basket);
+		else Reservations.getInstance().addReservation("Jan", "Kowalski", this.basket); // TODO
 	}
 
 	public void addMovieToBasket() {
@@ -35,6 +39,7 @@ public class ClientApp {
 
 	public ClientApp() {
 		this.basket = new ArrayList<Movie>();
+		this.client = Clients.getInstance().getClientById(1); // TODO
 	}
 
 }
