@@ -31,7 +31,7 @@ public class Movies {
 		return this.ListOfMovies;
 	}
 
-	public ArrayList<Movie> searchMovies(String name, String director, int durationFrom, int durationTo, LocalDate releaseDateFrom, LocalDate releaseDateTo, ArrayList<MovieCategories> categories) {
+	public ArrayList<Movie> searchMovies(String name, String director, int durationFrom, int durationTo, LocalDate releaseDateFrom, LocalDate releaseDateTo   , ArrayList<MovieCategories> categories) {
 		List<Movie> filteredList = this.ListOfMovies.stream()
 				.filter(movie -> movie.getName().contains(name)
 						&& movie.getDirector().contains(director)
@@ -52,6 +52,10 @@ public class Movies {
 		this.ListOfMovies.add(new Movie(this.ListOfMovies.size()+1, name, description, director, duration, price, releaseDate, categories));
 	}
 
+
+	public void clearMovies(){
+		this.ListOfMovies = new ArrayList<Movie>();
+	}
 
 
 

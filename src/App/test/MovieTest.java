@@ -4,6 +4,7 @@ import App.Enums.MovieCategories;
 import App.Resources.Movie;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.Assertions;
 
 import java.time.LocalDate;
@@ -33,13 +34,15 @@ public class MovieTest {
     }
 
 
+    @Category({MovieTTest.class})
     @Test
     public void shouldCreateComponent(){
         Assertions.assertTrue(movie != null);
     }
 
+    @Category({MovieTTest.class})
     @Test
-    public void gttersShouldReturnPropperValues(){
+    public void gettersShouldReturnPropperValues(){
         Assertions.assertEquals(director,movie.getDirector());
         Assertions.assertEquals(name,movie.getName());
         Assertions.assertEquals(price,movie.getPrice());

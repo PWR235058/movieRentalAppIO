@@ -28,7 +28,7 @@ public class ClientTest {
 
     @Category({ClientTTest.class})
     @Test
-    public void gettersShouldReturnPropperValues(){
+    public void gettersShouldReturnProperValues(){
         Assertions.assertEquals("firstName", client.getFirstName());
         Assertions.assertEquals(1, client.getId());
         Assertions.assertEquals("user", client.getUserName());
