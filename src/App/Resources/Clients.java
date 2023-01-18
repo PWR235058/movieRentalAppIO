@@ -64,4 +64,8 @@ public class Clients {
 		}
 	}
 
+	public void clearClients(){
+		this.listOfClients = new ArrayList<Client>();
+	}
+
 }

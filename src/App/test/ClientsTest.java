@@ -1,15 +1,34 @@
-package App.Resources;
+package App.test;
 
+import App.Resources.Client;
+import App.Resources.Clients;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.Assertions;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ClientsTest {
-    @Test
-    public void byDefaultListOfClientsShouldBeEmpty(){
-        assertEquals(0, Clients.getInstance().getClients().size());
+
+    @Rule
+    public ExpectedException expection = ExpectedException.none();
+    @Before
+    public void setUp(){
+        Clients.getInstance().clearClients();
     }
 
+
+    @Category({ClientTTest.class})
+    @Test
+    public void byDefaultListOfClientsShouldBeEmpty(){
+        Assertions.assertEquals(0, Clients.getInstance().getClients().size());
+    }
+
+
+    @Category({ClientTTest.class})
     @Test
     public void shouldAddNewClient(){
         Clients.getInstance().addClient("Grzegorz123", "123","Grzegorz","nieGrzegorz");
@@ -21,6 +40,8 @@ public class ClientsTest {
         assertEquals(1,Clients.getInstance().getClients().get(0).getId());
     }
 
+
+    @Category({ClientTTest.class})
     @Test
     public void filteringShouldWorkCorrectly(){
 
@@ -40,4 +61,18 @@ public class ClientsTest {
         assertEquals(3, Clients.getInstance().searchClients("","","nie").size());
 
     }
+
+
+    @Category({ClientTTest.class})
+    @Test
+    public void getClientByIdShouldWorkCorrectly(){
+        Clients.getInstance().addClient("Grzegorz123", "123","Grzegorz","nieGrzegorz");
+        Client client = Clients.getInstance().getClientById(1);
+        Assertions.assertTrue(client != null );
+        Assertions.assertEquals("Grzegorz123",client.getUserName());
+        Assertions.assertEquals("123",client.getPassword());
+        Assertions.assertEquals("Grzegorz",client.getFirstName());
+        Assertions.assertEquals("nieGrzegorz",client.getLastName());
+
+    };
 }
