@@ -1,6 +1,7 @@
 package App.test;
 
 import App.Enums.MovieCategories;
+import App.Interface.WorkerApp;
 import App.Resources.Movie;
 import App.Resources.Movies;
 import org.junit.Before;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 public class MoviesTest {
     ArrayList<MovieCategories> movieCategories;
-
+    WorkerApp workerApp;
 
     @Rule
     public ExpectedException expection = ExpectedException.none();
@@ -24,6 +25,7 @@ public class MoviesTest {
     public void setUp(){
         Movies.getInstance().clearMovies();
         movieCategories = new ArrayList<>();
+        workerApp = new WorkerApp();
     }
 
     @Category({MovieTTest.class})
@@ -61,6 +63,12 @@ public class MoviesTest {
 
     }
 
-
+    @Category({MovieTTest.class})
+    @Test
+    public void checkAddingMovie(){
+        Assertions.assertNotNull(workerApp);
+        workerApp.addMovie();
+        // etc
+    }
 
 }
