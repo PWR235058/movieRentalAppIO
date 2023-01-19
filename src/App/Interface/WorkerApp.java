@@ -12,8 +12,8 @@ public class WorkerApp {
 
 	private ArrayList<Movie> ListOfMovies;
 
-	public void registerClient() {
-		Clients.getInstance().addClient("userName","password","Jakub", "Mordalski");
+	public void registerClient(String userName, String password, String firstName, String lastName) {
+		Clients.getInstance().addClient(userName,password,firstName, lastName);
 	}
 
 	public void showMovies(){

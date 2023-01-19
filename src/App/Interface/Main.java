@@ -21,7 +21,7 @@ public class Main {
 		workerApp.addMovie();
 		workerApp.addMovie();
 		workerApp.addMovie();
-		workerApp.registerClient();
+		workerApp.registerClient("user", "pwd", "Jan", "Kowalski");
 		workerApp.showMovies();
 		clientApp.addMovieToBasket();
 		clientApp.createReservation();
